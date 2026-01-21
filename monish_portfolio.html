@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monish | Cloud Engineer (AWS)</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #dd0031;
+      --secondary: #1976d2;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1e293b, #020617);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 90px 8%;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(2, 6, 23, 0.6);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #cbd5f5;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #cbd5f5;
+    }
+
+    .cta {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(221,0,49,0.25), rgba(25,118,210,0.25));
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      transition: all 0.4s ease;
+    }
+
+    .skill {
+      margin-bottom: 16px;
+    }
+
+    .skill span {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+    }
+
+    .bar {
+      height: 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .bar div {
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      animation: load 2s forwards;
+    }
+
+    @keyframes load {
+      to { width: var(--level); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 8%;
+      border-top: 1px solid var(--border);
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <h3 class="gradient-text">Monish.dev</h3>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div>
+    <h1>Cloud Engineer <span class="gradient-text">(AWS)</span></h1>
+    <p>
+      AWS-focused Cloud Engineer with hands-on experience in infrastructure,
+      serverless architectures, IAM, and production-grade deployments.
+    </p>
+    <div class="cta">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="#contact" class="btn">Hire Me</a>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Professional Experience</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Parekh Integrated Services Pvt Ltd</h3>
+      <p>
+        <strong>Computer Operator</strong> (Dec 2020 – Jan 2022)<br><br>
+        • Hardware installation and system configuration<br>
+        • Software installations and updates<br>
+        • Network and internet troubleshooting<br>
+        • Worked with MySQL database operations with internal Projects
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>India Health Link</h3>
+      <p>
+        <strong>Web Developer</strong> (Apr 2023 – Aug 2024)<br><br>
+        • Application development and cloud deployments<br>
+        • AWS IAM roles and access management<br>
+        • Serverless architectures for internal portals<br>
+        • Hands-on experience with production AWS services
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Serverless Manpower Consultation Portal</h3>
+      <p>
+        Fully serverless architecture using AWS S3, API Gateway, Lambda,
+        DynamoDB, CloudFront, and IAM.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Static Portfolio Website</h3>
+      <p>
+        Hosted using S3 with CloudFront CDN, Route 53 DNS,
+        and SSL via AWS Certificate Manager (ACM).
+      </p>
+    </div>
+    <div class="card">
+      <h3>EC2 Based Application</h3>
+      <p>
+        EC2-based architecture project currently under development.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="certifications">
+  <h2>Certifications</h2>
+
+  <div style="display:flex; flex-direction:column; gap:28px; max-width:900px; margin:auto;">
+
+    <!-- Certification 1 -->
+    <div class="card">
+      <div style="display:flex; align-items:flex-start; gap:24px;">
+        <img src="https://www.kaizenanalytix.com/wp-content/uploads/2024/09/aws-white.png" alt="AWS Logo" width="80">
+        <div>
+          <h3>AWS Certified Cloud Practitioner</h3>
+          <p>
+            Issued Jan 2026<br>
+            Expires Jan 2029
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certification 2 -->
+    <div class="card">
+      <div style="display:flex; align-items:flex-start; gap:24px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png" alt="HackerRank Logo" width="80">
+        <div>
+          <h3>SQL (Basic)</h3>
+          <p>
+            HackerRank<br>
+            Issued Apr 2025<br>
+            Credential ID: 4D5BBAEC9D1D
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certification 3 -->
+    <div class="card">
+      <div style="display:flex; align-items:flex-start; gap:24px;">
+        <img src="https://wp.logos-download.com/wp-content/uploads/2022/12/NIIT_Technologies_Logo.png?dl" alt="NIIT Logo" width="80">
+        <div>
+          <h3>Installing, Configuring, Managing, and Troubleshooting a PC</h3>
+          <p>
+            NIIT Limited<br>
+            Issued Sep 2021
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certification 4 -->
+    <div class="card">
+      <div style="display:flex; align-items:flex-start; gap:24px;">
+        <img src="https://wp.logos-download.com/wp-content/uploads/2022/12/NIIT_Technologies_Logo.png?dl" alt="NIIT Logo" width="80">
+        <div>
+          <h3>Protocols and Internetworking Standards</h3>
+          <p>
+            NIIT Limited<br>
+            Issued Sep 2021
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certification 5 -->
+    <div class="card">
+      <div style="display:flex; align-items:flex-start; gap:24px;">
+        <img src="https://wp.logos-download.com/wp-content/uploads/2022/12/NIIT_Technologies_Logo.png?dl" alt="NIIT Logo" width="80">
+        <div>
+          <h3>Programming with Python for Data Sciences</h3>
+          <p>
+            NIIT Limited<br>
+            Issued Aug 2019
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="skills">
+  <h2>AWS Skills</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="skill"><span>EC2</span><div class="bar"><div style="--level:80%"></div></div></div>
+      <div class="skill"><span>VPC</span><div class="bar"><div style="--level:75%"></div></div></div>
+      <div class="skill"><span>S3</span><div class="bar"><div style="--level:85%"></div></div></div>
+      <div class="skill"><span>IAM</span><div class="bar"><div style="--level:80%"></div></div></div>
+      <div class="skill"><span>Lambda</span><div class="bar"><div style="--level:75%"></div></div></div>
+      <div class="skill"><span>DynamoDB</span><div class="bar"><div style="--level:70%"></div></div></div>
+      <div class="skill"><span>API Gateway</span><div class="bar"><div style="--level:70%"></div></div></div>
+      <div class="skill"><span>CloudFront</span><div class="bar"><div style="--level:75%"></div></div></div>
+      <div class="skill"><span>Route 53</span><div class="bar"><div style="--level:70%"></div></div></div>
+      <div class="skill"><span>ACM</span><div class="bar"><div style="--level:65%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+
+  <div class="grid" style="justify-content:center;">
+    <div class="card" style="text-align:center;">
+
+      <h3>Let’s Connect</h3>
+
+      <div style="display:flex; flex-direction:column; gap:18px; margin-top:22px;">
+
+        <!-- Gmail -->
+        <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
+               width="20" alt="Gmail">
+          <strong>Gmail :</strong>
+          <a href="mailto:monishg186@gmail.com"
+             style="color:#cbd5f5; text-decoration:none;">
+            monishg186@gmail.com
+          </a>
+        </div>
+
+        <!-- LinkedIn -->
+        <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+               width="20" alt="LinkedIn">
+          <strong>LinkedIn :</strong>
+          <a href="https://www.linkedin.com/in/monishg1999/"
+             target="_blank"
+             style="color:#cbd5f5; text-decoration:none;">
+            linkedin.com/in/monishg1999
+          </a>
+        </div>
+
+        <!-- Mobile -->
+        <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+          <img src="https://uxwing.com/wp-content/themes/uxwing/download/communication-chat-call/phone-call-white-icon.png"
+               width="18" alt="Mobile">
+          <strong>Mobile :</strong>
+          <a href="tel:+918807705411"
+             style="color:#cbd5f5; text-decoration:none;">
+            +91 88077 05411
+          </a>
+        </div>
+
+        <!-- WhatsApp -->
+        <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+               width="20" alt="WhatsApp">
+          <strong>WhatsApp :</strong>
+          <a href="https://wa.me/918807705411"
+             target="_blank"
+             style="color:#cbd5f5; text-decoration:none;">
+            Chat on WhatsApp
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  © 2026 Monish. AWS Cloud Engineer Portfolio.
+</footer>
+
+</body>
+</html>
