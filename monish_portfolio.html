@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +37,9 @@
       padding: 90px 8%;
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       font-weight: 600;
     }
 
@@ -124,7 +127,7 @@
       padding: 14px 32px;
       border-radius: 10px;
       border: 1px solid var(--border);
-      background: linear-gradient(135deg, rgba(221,0,49,0.25), rgba(25,118,210,0.25));
+      background: linear-gradient(135deg, rgba(221, 0, 49, 0.25), rgba(25, 118, 210, 0.25));
       color: white;
       text-decoration: none;
       font-weight: 500;
@@ -143,7 +146,7 @@
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 28px;
-      transition: all 0.4s ease;
+      /* transition: all 0.4s ease; */
     }
 
     .skill {
@@ -158,7 +161,7 @@
 
     .bar {
       height: 8px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 8px;
       overflow: hidden;
     }
@@ -170,7 +173,9 @@
     }
 
     @keyframes load {
-      to { width: var(--level); }
+      to {
+        width: var(--level);
+      }
     }
 
     footer {
@@ -180,318 +185,872 @@
       color: #94a3b8;
       font-size: 0.85rem;
     }
+
+
+
+    /* EXPERIENCE + PROJECT MODAL SYSTEM */
+
+    .exp-more,
+    .proj-more {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #38bdf8;
+    }
+
+    /* MODAL */
+
+    .portfolio-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 3000;
+    }
+
+    .portfolio-modal-box {
+      width: 60%;
+      max-height: 75vh;
+      margin: 6% auto;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Change cursor for clickable cards */
+
+    .exp-click,
+    .proj-click {
+      cursor: pointer;
+    }
+
+    /* Optional subtle hover feedback */
+
+    .exp-click:hover,
+    .proj-click:hover {
+      transform: translateY(-4px);
+      transition: transform 0.2s ease;
+    }
+
+    /* Hide scrollbar but keep scroll functionality */
+
+    .portfolio-modal-body {
+      overflow-y: auto;
+      scrollbar-width: none;
+      /* Firefox */
+      -ms-overflow-style: none;
+      /* Internet Explorer */
+    }
+
+    .portfolio-modal-body::-webkit-scrollbar {
+      display: none;
+      /* Chrome, Safari */
+    }
+
+    /* TITLE CENTER */
+
+    .portfolio-modal-title {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    /* SCROLLABLE CONTENT */
+
+    .portfolio-modal-body {
+      overflow-y: auto;
+      max-height: 55vh;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    /* CLOSE BUTTON */
+
+    .portfolio-close {
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* ROLE + DURATION */
+
+    .exp-role {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px) {
+
+      .portfolio-modal-box {
+        width: 90%;
+      }
+    }
+
+    /* LOCK BACKGROUND SCROLL WHEN MODAL OPEN */
+
+    .body-lock-scroll {
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* ENSURE ONLY MODAL CONTENT SCROLLS */
+
+    .portfolio-modal-body {
+      overflow-y: auto;
+      max-height: 60vh;
+      padding-right: 6px;
+    }
+
+    /* Certification card clickable styling */
+
+    .cert-clickable {
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body>
 
-<nav>
-  <h3 class="gradient-text">Monishcloud.click</h3>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <nav>
+    <h3 class="gradient-text">Monishcloud.click</h3>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<section class="hero" id="home">
-  <div>
-    <h1>Cloud Engineer <span class="gradient-text">(AWS)</span></h1>
-    <p>
-      AWS-focused Cloud Engineer with hands-on experience in infrastructure,
-      serverless architectures, IAM, and production-grade deployments.
-    </p>
-    <div class="cta">
-      <a href="#projects" class="btn">View Projects</a>
-      <a href="#contact" class="btn">Hire Me</a>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <h2>Professional Experience</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Parekh Integrated Services Pvt Ltd</h3>
+  <section class="hero" id="home">
+    <div>
+      <h1>Cloud Engineer <span class="gradient-text">(AWS)</span></h1>
       <p>
-        <strong>Computer Operator</strong> | Dec 2020 – Jan 2022
+        AWS-focused Cloud Engineer with hands-on experience in infrastructure,
+        serverless architectures, IAM, and production-grade deployments.
       </p>
+      <div class="cta">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="#contact" class="btn">Hire Me</a>
+        <a href="resume/Monish_Cloud_Engineer_Resume.pdf" class="btn resume-btn" download>Download Resume</a>
+      </div>
+    </div>
+  </section>
 
-      <ul style="margin-top:10px; padding-left:18px; line-height:1.7;">
-        <li>Installed and configured computer hardware, operating systems, and enterprise software.</li>
-        <li>Performed system maintenance, troubleshooting, and performance optimization.</li>
-        <li>Diagnosed and resolved network connectivity and internet-related issues.</li>
-        <li>Supported internal database operations using MySQL for business applications.</li>
-        <li>Maintained system stability through regular software updates and configuration management.</li>
-      </ul>
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="skill">
+          <span>AWS Cloud Engineering</span>
+          <div class="bar">
+            <div style="--level:85%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Linux Administration</span>
+          <div class="bar">
+            <div style="--level:75%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Networking Fundamentals</span>
+          <div class="bar">
+            <div style="--level:80%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Infrastructure as Code (Terraform)</span>
+          <div class="bar">
+            <div style="--level:70%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>CI/CD Automation Pipelines</span>
+          <div class="bar">
+            <div style="--level:70%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Version Control</span>
+          <div class="bar">
+            <div style="--level:80%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Architecture Design</span>
+          <div class="bar">
+            <div style="--level:75%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Cloud Security</span>
+          <div class="bar">
+            <div style="--level:80%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Monitoring & Observability</span>
+          <div class="bar">
+            <div style="--level:87%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Cost Optimization</span>
+          <div class="bar">
+            <div style="--level:84%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <span>Cloud Infrastructure Troubleshooting</span>
+          <div class="bar">
+            <div style="--level:75%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="grid">
+
+      <div class="card proj-click" data-proj="serverless">
+        <h3>Serverless Manpower Consultation Portal</h3>
+        <p>
+          A fully serverless cloud-native application built using AWS services
+          enabling scalable API driven manpower consultation workflows.
+        </p>
+        <span class="proj-more">Show More →</span>
+      </div>
+
+
+      <div class="card proj-click" data-proj="portfolio">
+        <h3>Static Portfolio Website on AWS</h3>
+        <p>
+          A globally distributed portfolio website deployed using AWS static
+          hosting architecture with CDN delivery and secure HTTPS access.
+        </p>
+        <span class="proj-more">Show More →</span>
+      </div>
+
+
+      <div class="card proj-click" data-proj="three-tier">
+        <h3>Highly Available Cloud Application</h3>
+        <p>
+          Production-style AWS infrastructure implementing a scalable three-tier
+          architecture with load balancing and secure networking.
+        </p>
+        <span class="proj-more">Show More →</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Professional Experience</h2>
+
+    <div class="grid">
+
+      <div class="card exp-click" data-exp="parekh">
+        <h3>Parekh Integrated Services Pvt Ltd</h3>
+        <p>
+          <strong>Computer Operator</strong> | Dec 2020 – Jan 2022
+        </p>
+        <p class="exp-preview">
+          Managed system installations, troubleshooting and database support
+          ensuring reliable IT infrastructure for business operations.
+        </p>
+        <span class="exp-more">View Details →</span>
+      </div>
+
+
+      <div class="card exp-click" data-exp="ihl">
+        <h3>India Health Link</h3>
+        <p>
+          <strong>Web Developer</strong> | Apr 2023 – Aug 2024
+        </p>
+        <p class="exp-preview">
+          Developed internal applications and worked with AWS infrastructure,
+          IAM security, and operational monitoring for production systems.
+        </p>
+        <span class="exp-more">View Details →</span>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+
+    <div style="display:flex; flex-direction:column; gap:28px; max-width:900px; margin:auto;">
+
+      <!-- Certification 1 -->
+      <div style="display: none;" class="card">
+        <div style="display:flex; align-items:flex-start; gap:24px;">
+          <img src="https://www.kaizenanalytix.com/wp-content/uploads/2024/09/aws-white.png" alt="AWS Logo" width="80">
+          <div>
+            <h3>AWS Certified Solutions Architect - Associate</h3>
+            <p>
+              Issued Jun 2026<br>
+              Expires Jun 2029
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certification 2 -->
+      <div class="card">
+        <div style="display:flex; align-items:flex-start; gap:24px;">
+          <img src="https://www.kaizenanalytix.com/wp-content/uploads/2024/09/aws-white.png" alt="AWS Logo" width="80">
+          <div>
+            <h3>AWS Certified AI Practitioner</h3>
+            <p>
+              Issued Mar 2026<br>
+              Expires Mar 2029
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certification 3 -->
+      <div class="card cert-clickable"
+        onclick="window.open('https://www.credly.com/badges/0d54a444-3878-4716-85cc-bc718c204389/linked_in_profile','_blank')">
+        <div style="display:flex; align-items:flex-start; gap:24px;">
+          <img src="https://www.kaizenanalytix.com/wp-content/uploads/2024/09/aws-white.png" alt="AWS Logo" width="80">
+          <div>
+            <h3>AWS Certified Cloud Practitioner</h3>
+            <p>
+              Issued Feb 2026<br>
+              Expires Feb 2029
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certification 4 -->
+      <div class="card cert-clickable"
+        onclick="window.open('https://www.hackerrank.com/certificates/iframe/4d5bbaec9d1d','_blank')">
+        <div style="display:flex; align-items:flex-start; gap:24px;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png" alt="HackerRank Logo"
+            width="80">
+          <div>
+            <h3>SQL (Basic)</h3>
+            <p>
+              HackerRank<br>
+              Issued Apr 2025<br>
+              Credential ID: 4D5BBAEC9D1D
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certification 5 -->
+      <div class="card">
+        <div style="display:flex; align-items:flex-start; gap:24px;">
+          <img src="https://wp.logos-download.com/wp-content/uploads/2022/12/NIIT_Technologies_Logo.png?dl"
+            alt="NIIT Logo" width="80">
+          <div>
+            <h3>Protocols and Internetworking Standards</h3>
+            <p>
+              NIIT Limited<br>
+              Issued Sep 2021
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certification 6 -->
+      <div class="card">
+        <div style="display:flex; align-items:flex-start; gap:24px;">
+          <img src="https://wp.logos-download.com/wp-content/uploads/2022/12/NIIT_Technologies_Logo.png?dl"
+            alt="NIIT Logo" width="80">
+          <div>
+            <h3>Installing, Configuring, Managing, and Troubleshooting a PC</h3>
+            <p>
+              NIIT Limited<br>
+              Issued Sep 2021
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certification 7 -->
+      <div class="card">
+        <div style="display:flex; align-items:flex-start; gap:24px;">
+          <img src="https://wp.logos-download.com/wp-content/uploads/2022/12/NIIT_Technologies_Logo.png?dl"
+            alt="NIIT Logo" width="80">
+          <div>
+            <h3>Programming with Python for Data Sciences</h3>
+            <p>
+              NIIT Limited<br>
+              Issued Aug 2019
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
 
+  </section>
 
-    <div class="card">
-      <h3>India Health Link</h3>
-      <p>
-        <strong>Web Developer</strong> | Apr 2023 – Aug 2024
-      </p>
 
-      <ul style="margin-top:10px; padding-left:18px; line-height:1.7;">
-        <li>Developed and deployed internal web applications supporting business operations.</li>
-        <li>Worked with AWS cloud infrastructure for application hosting and environment management.</li>
-        <li>Implemented access control and identity management using AWS IAM roles and policies.</li>
-        <li>Designed backend components and serverless workflows for internal operational systems.</li>
-        <li>Monitored application logs and system activity to detect errors and ensure service reliability.</li>
-        <li>Tracked user activity and system usage to support operational monitoring and security.</li>
-        <li>Configured cloud budget alerts and analyzed monthly infrastructure costs to optimize spending.</li>
-        <li>Maintained production environments and assisted with deployment and operational support.</li>
-      </ul>
+
+
+  <section id="contact">
+    <h2>Contact</h2>
+
+    <div class="grid" style="justify-content:center;">
+      <div class="card" style="text-align:center;">
+
+        <h3>Let’s Connect</h3>
+
+        <div style="display:flex; flex-direction:column; gap:18px; margin-top:22px;">
+
+          <!-- Gmail -->
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" width="20"
+              alt="Gmail">
+            <strong>Gmail :</strong>
+            <a href="mailto:monishg186@gmail.com" style="color:#cbd5f5; text-decoration:none;">
+              monishg186@gmail.com
+            </a>
+          </div>
+
+          <!-- LinkedIn -->
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" width="20"
+              alt="LinkedIn">
+            <strong>LinkedIn :</strong>
+            <a href="https://www.linkedin.com/in/monishg1999/" target="_blank"
+              style="color:#cbd5f5; text-decoration:none;">
+              linkedin.com/in/monishg1999
+            </a>
+          </div>
+
+          <!-- GitHub -->
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" width="22"
+              style="filter: invert(1);" alt="GitHub">
+
+            <strong>GitHub :</strong>
+
+            <a href="https://github.com/Monish500/" target="_blank" style="color:#cbd5f5; text-decoration:none;">
+              github.com/Monish500
+            </a>
+
+          </div>
+
+          <!-- Mobile -->
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+            <img
+              src="https://uxwing.com/wp-content/themes/uxwing/download/communication-chat-call/phone-call-white-icon.png"
+              width="18" alt="Mobile">
+            <strong>Mobile :</strong>
+            <a href="tel:+918807705411" style="color:#cbd5f5; text-decoration:none;">
+              +91 88077 05411
+            </a>
+          </div>
+
+          <!-- WhatsApp -->
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20" alt="WhatsApp">
+            <strong>WhatsApp :</strong>
+            <a href="https://wa.me/918807705411" target="_blank" style="color:#cbd5f5; text-decoration:none;">
+              Chat on WhatsApp
+            </a>
+          </div>
+
+
+          <!-- YouTube -->
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" width="22" alt="YouTube">
+
+            <strong>YouTube :</strong>
+
+            <a href="https://www.youtube.com/@MonishCloudLab" target="_blank"
+              style="color:#cbd5f5; text-decoration:none; font-weight:500;">MonishCloudLab</a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer>
+    © 2026 Monish. AWS Cloud Engineer Portfolio.
+  </footer>
+
+  <div id="portfolioModal" class="portfolio-modal">
+
+    <div class="portfolio-modal-box">
+
+      <span class="portfolio-close">&times;</span>
+
+      <h2 id="portfolioTitle" class="portfolio-modal-title"></h2>
+
+      <div id="portfolioBody" class="portfolio-modal-body"></div>
+
     </div>
 
   </div>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Serverless Manpower Consultation Portal</h3>
-      <p>
-        Fully serverless architecture using AWS S3, API Gateway, Lambda,
-        DynamoDB, CloudFront, and IAM.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Static Portfolio Website</h3>
-      <p>
-        Fully deployed static website architecture on AWS using S3 with CDN delivery,
-        domain management, and SSL integration for secure global access.
-      </p>
-    </div>
-    <div class="card">
-      <h3>EC2 Based Application</h3>
-      <p>
-        Designed a production-style three-tier cloud architecture with scalable
-        compute infrastructure, load balancing, and secure networking.
-      </p>
-    </div>
-  </div>
-</section>
 
 
 
-<section id="certifications">
-  <h2>Certifications</h2>
+  <script>
 
-  <div style="display:flex; flex-direction:column; gap:28px; max-width:900px; margin:auto;">
+    /* MODAL CORE */
 
-    <!-- Certification 1 -->
-    <div class="card">
-      <div style="display:flex; align-items:flex-start; gap:24px;">
-        <img src="https://www.kaizenanalytix.com/wp-content/uploads/2024/09/aws-white.png" alt="AWS Logo" width="80">
-        <div>
-          <h3>AWS Certified Cloud Practitioner</h3>
-          <p>
-            Issued Feb 2026<br>
-            Expires Feb 2029
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Certification 2 -->
-    <div class="card">
-      <div style="display:flex; align-items:flex-start; gap:24px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png" alt="HackerRank Logo" width="80">
-        <div>
-          <h3>SQL (Basic)</h3>
-          <p>
-            HackerRank<br>
-            Issued Apr 2025<br>
-            Credential ID: 4D5BBAEC9D1D
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Certification 3 -->
-    <div class="card">
-      <div style="display:flex; align-items:flex-start; gap:24px;">
-        <img src="https://wp.logos-download.com/wp-content/uploads/2022/12/NIIT_Technologies_Logo.png?dl" alt="NIIT Logo" width="80">
-        <div>
-          <h3>Installing, Configuring, Managing, and Troubleshooting a PC</h3>
-          <p>
-            NIIT Limited<br>
-            Issued Sep 2021
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Certification 4 -->
-    <div class="card">
-      <div style="display:flex; align-items:flex-start; gap:24px;">
-        <img src="https://wp.logos-download.com/wp-content/uploads/2022/12/NIIT_Technologies_Logo.png?dl" alt="NIIT Logo" width="80">
-        <div>
-          <h3>Protocols and Internetworking Standards</h3>
-          <p>
-            NIIT Limited<br>
-            Issued Sep 2021
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Certification 5 -->
-    <div class="card">
-      <div style="display:flex; align-items:flex-start; gap:24px;">
-        <img src="https://wp.logos-download.com/wp-content/uploads/2022/12/NIIT_Technologies_Logo.png?dl" alt="NIIT Logo" width="80">
-        <div>
-          <h3>Programming with Python for Data Sciences</h3>
-          <p>
-            NIIT Limited<br>
-            Issued Aug 2019
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-</section>
+    const modal = document.getElementById("portfolioModal");
+    const modalTitle = document.getElementById("portfolioTitle");
+    const modalBody = document.getElementById("portfolioBody");
+    const closeBtn = document.querySelector(".portfolio-close");
 
 
-<section id="skills">
-  <h2>AWS Skills</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="skill">
-        <span>AWS Cloud Engineering</span>
-        <div class="bar"><div style="--level:85%"></div></div>
-      </div>
+    /* EXPERIENCE DATA */
 
-      <div class="skill">
-        <span>Linux Administration</span>
-        <div class="bar"><div style="--level:75%"></div></div>
-      </div>
+    const experienceData = {
 
-      <div class="skill">
-        <span>Networking Fundamentals</span>
-        <div class="bar"><div style="--level:80%"></div></div>
-      </div>
+      parekh: {
+        title: "Parekh Integrated Services Pvt Ltd",
 
-      <div class="skill">
-        <span>Infrastructure as Code (Terraform)</span>
-        <div class="bar"><div style="--level:70%"></div></div>
-      </div>
+        content: `
 
-      <div class="skill">
-        <span>CI/CD Automation Pipelines</span>
-        <div class="bar"><div style="--level:70%"></div></div>
-      </div>
+<div class="exp-role">
+<span>Computer Operator</span>
+<span>Dec 2020 – Jan 2022</span>
+</div>
 
-      <div class="skill">
-        <span>Version Control</span>
-        <div class="bar"><div style="--level:80%"></div></div>
-      </div>
+<ul>
+<li>- Installed and configured computer hardware and enterprise software.</li>
+<li>- Performed system maintenance and troubleshooting.</li>
+<li>- Diagnosed and resolved network connectivity issues.</li>
+<li>- Supported internal MySQL database operations.</li>
+<li>- Maintained system performance through regular updates.</li>
+</ul>
 
-      <div class="skill">
-        <span>Architecture Design</span>
-        <div class="bar"><div style="--level:75%"></div></div>
-      </div>
+`
+      },
 
-      <div class="skill">
-        <span>Cloud Security</span>
-        <div class="bar"><div style="--level:80%"></div></div>
-      </div>
+      ihl: {
+        title: "India Health Link",
 
-      <div class="skill">
-        <span>Monitoring & Observability</span>
-        <div class="bar"><div style="--level:87%"></div></div>
-      </div>
+        content: `
 
-      <div class="skill">
-        <span>Cost Optimization</span>
-        <div class="bar"><div style="--level:84%"></div></div>
-      </div>
+<div class="exp-role">
+<span>Web Developer</span>
+<span>Apr 2023 – Aug 2024</span>
+</div>
 
-      <div class="skill">
-        <span>Cloud Infrastructure Troubleshooting</span>
-        <div class="bar"><div style="--level:75%"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<p>- 
+Worked on internal web applications while managing AWS infrastructure,
+IAM security, monitoring systems and operational environments.
+</p>
 
-<section id="contact">
-  <h2>Contact</h2>
+<ul>
+<li>- Developed and deployed internal web applications.</li>
+<li>- Worked with AWS infrastructure for hosting environments.</li>
+<li>- Implemented IAM policies and role based access control.</li>
+<li>- Designed backend components and serverless workflows.</li>
+<li>- Monitored application logs and system activity.</li>
+<li>- Tracked user activity for operational monitoring.</li>
+<li>- Configured AWS cost monitoring and budget alerts.</li>
+<li>- Maintained production environments and deployments.</li>
+</ul>
 
-  <div class="grid" style="justify-content:center;">
-    <div class="card" style="text-align:center;">
+`
 
-      <h3>Let’s Connect</h3>
+      }
 
-      <div style="display:flex; flex-direction:column; gap:18px; margin-top:22px;">
-
-        <!-- Gmail -->
-        <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
-               width="20" alt="Gmail">
-          <strong>Gmail :</strong>
-          <a href="mailto:monishg186@gmail.com"
-             style="color:#cbd5f5; text-decoration:none;">
-            monishg186@gmail.com
-          </a>
-        </div>
-
-        <!-- LinkedIn -->
-        <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
-               width="20" alt="LinkedIn">
-          <strong>LinkedIn :</strong>
-          <a href="https://www.linkedin.com/in/monishg1999/"
-             target="_blank"
-             style="color:#cbd5f5; text-decoration:none;">
-            linkedin.com/in/monishg1999
-          </a>
-        </div>
-
-        <!-- Mobile -->
-        <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-          <img src="https://uxwing.com/wp-content/themes/uxwing/download/communication-chat-call/phone-call-white-icon.png"
-               width="18" alt="Mobile">
-          <strong>Mobile :</strong>
-          <a href="tel:+918807705411"
-             style="color:#cbd5f5; text-decoration:none;">
-            +91 88077 05411
-          </a>
-        </div>
-
-        <!-- WhatsApp -->
-        <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-               width="20" alt="WhatsApp">
-          <strong>WhatsApp :</strong>
-          <a href="https://wa.me/918807705411"
-             target="_blank"
-             style="color:#cbd5f5; text-decoration:none;">
-            Chat on WhatsApp
-          </a>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</section>
+    };
 
 
+    /* PROJECT DATA */
 
-<footer>
-  © 2026 Monish. AWS Cloud Engineer Portfolio.
-</footer>
+    const projectData = {
+
+      serverless: {
+        title: "Serverless Manpower Consultation Portal",
+
+        content: `
+
+<h3>Project Overview</h3>
+
+<p>
+The Serverless Manpower Consultation Portal is a cloud-native application designed
+to handle consultation requests through a fully serverless backend architecture.
+</p>
+
+<p>
+Users submit consultation information via a web interface while AWS services
+process and store the data automatically.
+</p><br>
+
+<h3>Architecture Design</h3>
+
+<p>
+Frontend is hosted on Amazon S3 and delivered globally through CloudFront CDN.
+</p>
+
+<p>
+API Gateway exposes REST endpoints triggering Lambda functions which process
+business logic and store records in DynamoDB.
+</p><br>
+
+<h3>AWS Services Used</h3>
+
+<ul>
+<li>- Amazon S3</li>
+<li>- Amazon CloudFront</li>
+<li>- Amazon API Gateway</li>
+<li>- AWS Lambda</li>
+<li>- Amazon DynamoDB</li>
+<li>- AWS IAM</li>
+</ul><br>
+
+<h3>Key Highlights</h3>
+
+<ul>
+<li>- Fully serverless architecture</li>
+<li>- Automatic scaling</li>
+<li>- Secure API driven backend</li>
+<li>- Low latency CDN delivery</li>
+<li>- Cost efficient pay-per-use model</li>
+</ul><br>
+
+<h3>Outcome</h3>
+
+<p>
+Demonstrates how scalable cloud applications can be built using
+AWS serverless technologies with minimal infrastructure management.
+</p>
+
+`
+      },
+
+      portfolio: {
+        title: "Static Portfolio Website on AWS",
+
+        content: `
+
+<h3>Project Overview</h3>
+
+<p>
+A personal cloud engineering portfolio website deployed using
+AWS static hosting architecture.
+</p>
+
+<p>
+Designed for global accessibility, high performance and secure
+HTTPS communication.
+</p><br>
+
+<h3>Architecture Design</h3>
+
+<p>
+Website assets are stored in Amazon S3 and delivered worldwide
+through CloudFront CDN edge locations.
+</p>
+
+<p>
+Route53 manages DNS while AWS Certificate Manager provides SSL encryption.
+</p><br>
+
+<h3>AWS Services Used</h3>
+
+<ul>
+<li>- Amazon S3</li>
+<li>- Amazon CloudFront</li>
+<li>- Amazon Route53</li>
+<li>- AWS Certificate Manager</li>
+<li>- AWS IAM</li>
+</ul><br>
+
+<h3>Key Highlights</h3>
+
+<ul>
+<li>- Global CDN distribution</li>
+<li>- HTTPS secure website</li>
+<li>- Highly available static hosting</li>
+<li>- Cost optimized architecture</li>
+</ul><br>
+
+<h3>Outcome</h3>
+
+<p>
+Demonstrates modern cloud deployment techniques for globally
+accessible static applications.
+</p>
+
+`
+      },
+
+      "three-tier": {
+        title: "Highly Available Cloud Application (3-Tier Architecture)",
+
+        content: `
+
+<h3>Project Overview</h3>
+
+<p>
+Production style three-tier AWS infrastructure designed to replicate
+enterprise cloud architecture patterns.
+</p><br>
+
+<h3>Architecture Design</h3>
+
+<p>- 
+Infrastructure is deployed inside a custom VPC with public and private subnets
+across multiple availability zones.
+</p>
+
+<p>- 
+Traffic flows through an Application Load Balancer distributing requests to
+EC2 instances in Auto Scaling Groups.
+</p>
+
+<p>- 
+Database layer runs on Amazon Aurora within private subnets.
+</p>
+
+<p>- 
+NAT Gateway enables secure outbound internet connectivity.
+</p><br>
+
+<h3>AWS Services Used</h3>
+
+<ul>
+<li>- Amazon VPC</li>
+<li>- Public and Private Subnets</li>
+<li>- Application Load Balancer</li>
+<li>- Amazon EC2</li>
+<li>- Auto Scaling Group</li>
+<li>- Amazon Aurora</li>
+<li>- NAT Gateway</li>
+<li>- AWS IAM</li>
+</ul><br>
+
+<h3>Key Highlights</h3>
+
+<ul>
+<li>- Highly available multi-AZ architecture</li>
+<li>- Scalable compute infrastructure</li>
+<li>- Secure network segmentation</li>
+<li>- Production grade design pattern</li>
+</ul><br>
+
+<h3>Outcome</h3>
+
+<p>
+Demonstrates enterprise cloud architecture design
+focused on scalability, security and fault tolerance.
+</p>
+
+`
+      }
+
+    };
+
+
+    /* OPEN EXPERIENCE MODAL */
+
+    document.querySelectorAll(".exp-click").forEach(card => {
+      card.onclick = () => {
+        const id = card.dataset.exp;
+
+        modalTitle.innerText = experienceData[id].title;
+        modalBody.innerHTML = experienceData[id].content;
+
+        modal.style.display = "block";
+
+        /* LOCK BACKGROUND SCROLL */
+
+        document.body.classList.add("body-lock-scroll");
+
+      };
+    });
+
+
+    /* OPEN PROJECT MODAL */
+
+    document.querySelectorAll(".proj-click").forEach(card => {
+      card.onclick = () => {
+        const id = card.dataset.proj;
+
+        modalTitle.innerText = projectData[id].title;
+        modalBody.innerHTML = projectData[id].content;
+
+        modal.style.display = "block";
+
+        /* LOCK BACKGROUND SCROLL */
+
+        document.body.classList.add("body-lock-scroll");
+
+      };
+    });
+
+
+    /* CLOSE MODAL */
+
+    closeBtn.onclick = () => {
+      modal.style.display = "none";
+      document.body.classList.remove("body-lock-scroll");
+    };
+
+
+    /* CLICK OUTSIDE */
+
+    window.onclick = (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        document.body.classList.remove("body-lock-scroll");
+      }
+    };
+
+
+    /* ESC KEY CLOSE */
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        modal.style.display = "none";
+        document.body.classList.remove("body-lock-scroll");
+      }
+    });
+
+  </script>
 
 </body>
+
 </html>
